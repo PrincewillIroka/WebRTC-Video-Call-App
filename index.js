@@ -24,6 +24,8 @@ app.get('/', (req, res) => {
   return res.sendFile(__dirname + '/index.html')
 })
 
+app.get('/data', (req, res) => res.json(process.env.key))
+
 //listen on the app
 app.listen(port, () => {
   return console.log(`Server is up on ${port}`)

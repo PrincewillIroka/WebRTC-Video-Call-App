@@ -20,7 +20,79 @@
             </ul>
         </div>
     </div>
-    <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+    <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
+    <script>
+
+        var usersOnline,
+            id,
+            users = [],
+            sessionDesc,
+            currentcaller,
+            room,
+            caller,
+            localUserMedia;
+
+        fetch("/data")
+            .then(function (response) {
+                return response.json()
+            })
+            .then(function (myJson) {
+                startApp(myJson);
+            });
+
+        const startApp = (apiKey) => {
+
+            const pusher = new Pusher(apiKey, {
+                cluster: 'eu',
+                forceTLS: true
+            });
+
+            const channel = pusher.subscribe("presence-videocall");
+
+            channel.bind("pusher:subscription_succeeded", members => {
+                //set the member count
+                usersOnline = members.count;
+                id = channel.members.me.id;
+                document.getElementById("myid").innerHTML = ` My caller id is : ` + id;
+                members.each(member => {
+                    if (member.id != channel.members.me.id) {
+                        users.push(member.id);
+                    }
+                });
+
+                render();
+            });
+
+            channel.bind("pusher:member_added", member => {
+                users.push(member.id);
+                render();
+            });
+
+            channel.bind("pusher:member_removed", member => {
+                // for remove member from list:
+                var index = users.indexOf(member.id);
+                users.splice(index, 1);
+                if (member.id == room) {
+                    endCall();
+                }
+                render();
+            });
+
+        }
+
+        function render() {
+            var list = "";
+            users.forEach(function (user) {
+                list +=
+                    `<li>` +
+                    user +
+                    ` <input type="button" style="float:right;"  value="Call" onclick="callUser('` +
+                    user +
+                    `')" id="makeCall" /></li>`;
+            });
+            document.getElementById("users").innerHTML = list;
+        }
+    </script>
 
 </body>
 

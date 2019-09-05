@@ -8,6 +8,7 @@ node_modules
 
 # Log files
 npm-debug.log*
+package-lock.json
 
 # Editor directories and files
 .idea

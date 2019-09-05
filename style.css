@@ -1,0 +1,40 @@
+video {
+    /* video border */
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 20px;
+    /* tranzitionstransitions applied to the vodeovideo element */
+    -moz-transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
+#list ul {
+    list-style: none;
+}
+
+#list ul li {
+    font-family: Georgia, serif, Times;
+    font-size: 18px;
+    display: block;
+    width: 300px;
+    height: 28px;
+    background-color: #333;
+    border-left: 5px solid #222;
+    border-right: 5px solid #222;
+    padding-left: 10px;
+    text-decoration: none;
+    color: #bfe1f1;
+}
+
+#list ul li:hover {
+    -moz-transform: rotate(-5deg);
+    -moz-box-shadow: 10px 10px 20px #000000;
+    -webkit-transform: rotate(-5deg);
+    -webkit-box-shadow: 10px 10px 20px #000000;
+    transform: rotate(-5deg);
+    box-shadow: 10px 10px 20px #000000;
+}

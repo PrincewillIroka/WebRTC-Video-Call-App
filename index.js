@@ -7,6 +7,7 @@ dotenv.config()
 const port = process.env.PORT
 
 // Body parser middleware
+app.use(express.static(__dirname + '/'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 // Session middleware

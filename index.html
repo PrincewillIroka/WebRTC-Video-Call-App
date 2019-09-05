@@ -44,7 +44,11 @@
             });
 
 
-        const pusher = new Pusher(apiKey, {
+        console.log(apiKey)
+
+        // const startApp = (apiKey) => {
+
+        const pusher = new Pusher('74ba1fdcca33c49e4d7b', {
             cluster: 'eu',
             forceTLS: true
         });
@@ -287,6 +291,7 @@
             }
         });
 
+        // }
 
     </script>
 

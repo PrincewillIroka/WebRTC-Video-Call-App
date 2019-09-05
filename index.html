@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Audio/Video Call App</title>
+</head>
+
+<body>
+    <div id="app">
+        <span id="myid"> </span>
+        <video id="selfview"></video>
+        <video id="remoteview"></video>
+        <button id="endCall" onclick="endCurrentCall()" style="display: none;">End Call </button>
+        <div id="list">
+            <ul id="users">
+
+            </ul>
+        </div>
+    </div>
+    <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+
+</body>
+
+</html>

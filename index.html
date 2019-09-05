@@ -40,15 +40,10 @@
                 return response.json()
             })
             .then(function (myJson) {
-                this.apiKey = myJson;
+                apiKey = myJson;
             });
 
-
-        console.log(apiKey)
-
-        // const startApp = (apiKey) => {
-
-        const pusher = new Pusher('74ba1fdcca33c49e4d7b', {
+        const pusher = new Pusher(apiKey, {
             cluster: 'eu',
             forceTLS: true
         });
